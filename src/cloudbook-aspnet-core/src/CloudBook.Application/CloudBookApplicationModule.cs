@@ -2,6 +2,7 @@ using Abp.AutoMapper;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using CloudBook.Authorization;
+using CloudBook.Books.Mapper;
 
 namespace CloudBook
 {
@@ -17,7 +18,8 @@ namespace CloudBook
             // 自定义类型映射
             Configuration.Modules.AbpAutoMapper().Configurators.Add(configuration =>
             {
-                // XXXMapper.CreateMappers(configuration);
+                //添加书籍的映射              
+                BookMapper.CreateMappers(configuration);
 
 
             });
