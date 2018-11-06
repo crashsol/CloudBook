@@ -1,0 +1,9 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# IDEs and editors
+.vs/
+obj/
+bin/
+cloudbook-aspnet-core/src/CloudBook.Web.Host/App_Data/Logs/
+cloudbook-aspnet-core/src/CloudBook.Web.Mvc/App_Data/Logs/
+cloudbook-aspnet-core/src/CloudBook.Migrator/Logs/Logs.txt
