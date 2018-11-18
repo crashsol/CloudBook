@@ -33,4 +33,26 @@
       },
 
    ```
+## 为cloud-book-list添加需要的相关模块
+  ```
+  @NgModule({
+  imports: [
+    CommonModule,
+    //网络模块
+    HttpClientModule,
+    //公共模块
+    SharedModule,
+    //Abp模块
+    AbpModule,
+    CloudBookListRoutingModule
+  ],
+  declarations: [BookListComponent],
+  // 本地化服务
+  providers: [LocalizationService，TitleService]
+   // 需要编译的Component
+  entryComponents: [BookListComponent]
 
+})
+  ```
+
+## 开启后端服务，在前段运行nswag下的bat，根据swagger 文档自动更新 ServiceProxy，更新与后台通讯服务

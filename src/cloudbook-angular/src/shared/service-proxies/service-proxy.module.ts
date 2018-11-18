@@ -13,6 +13,8 @@ import * as ApiServiceProxies from '@shared/service-proxies/service-proxies';
     ApiServiceProxies.TokenAuthServiceProxy,
     ApiServiceProxies.AccountServiceProxy,
     ApiServiceProxies.ConfigurationServiceProxy,
+    // 添加BooksService服务代理
+    ApiServiceProxies.BooksServiceProxy,
     { provide: HTTP_INTERCEPTORS, useClass: AbpHttpInterceptor, multi: true },
   ],
 })

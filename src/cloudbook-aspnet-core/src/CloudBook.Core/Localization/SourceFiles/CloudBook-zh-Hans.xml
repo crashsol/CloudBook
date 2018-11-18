@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="zh-Hans">
   <texts>
-    
+
     <!--云书单模块-->
     <text name="CloudBookList" value="云书单"/>
-    <text name="Books" value="书籍管理"/>   
+    <text name="Books" value="书籍管理"/>
+    <text name="Create" value="创建"/>
+    <text name="BatchDelete" value="批量删除"/>
+    <text name="Author" value="作者"/>
+    <text name="Intro" value="简介"/>
+    <text name="PriceUrl" value="图片"/>
+    
+    <text name="ClearEmpty" value="清空"/>
+    <text name="NoData" value="暂无数据"/>
+    <text name="GridFooterDisplayText" value="当前{0}页/共{1}页，共{2}条/显示{3}-{4}条"/>
+    <text name="GridSelectedItemsTips">      
+      <![CDATA[已选择<strong class="text primary">{0}</strong>项]]>    
+    </text>
     
     
-    
-    
-    
-    
-    
-    
+      
+
+
+
+
+
+
+
+
+
     <text name="HomePage" value="主页" />
     <text name="About" value="关于我们" />
     <text name="WellcomeMessage" value="欢迎使用 YoyoCmsTemplate!" />
-    
+
     <text name="FormIsNotValidMessage" value="部分输入信息不符合要求，请检查并改正.." />
     <text name="TenantNameCanNotBeEmpty" value="租户名不能为空" />
 
@@ -30,7 +46,7 @@
     <text name="Password" value="密码" />
     <text name="RememberMe" value="记住我" />
     <text name="LogIn" value="登录" />
- 
+
 
     <text name="LoginFailed" value="登录失败!" />
     <text name="Roles" value="角色" />
@@ -194,12 +210,12 @@
     <text name="OopsYouAreLost" value="噢! 失踪了." />
     <text name="WeCanNotFindThePage" value="我们无法提供您想要访问的页面." />
     <text name="DashboardDemo_Note_Title" value="欢迎使用ASP.NET Zero启动项目!" />
-   
+
     <text name="WelcomePage_Title" value="欢迎!" />
     <text name="WelcomePage_Info" value="欢迎使用本应用，您可以从左边的菜单启动要使用的功能。如果您没有看到任何菜单，可能是因为您没有获得任何一项授权，您可以联系您的系统管理员获得授权. " />
     <text name="RequestedFileDoesNotExists" value="请求的文件不存在!" />
     <text name="MailSent" value="邮件已发送" />
-   
+
     <text name="UseCaptchaOnRegistration" value="用户注册时使用图片验证码(captcha)." />
     <text name="FormBasedRegistration" value="基于表单身份验证" />
     <text name="LdapSettings" value="LDAP设置" />
@@ -228,7 +244,7 @@
     <text name="ActionInformations" value="操作信息" />
     <text name="Today" value="今天" />
     <text name="Yesterday" value="昨天" />
-    
+
     <text name="TenantSelection" value="选择租户" />
     <text name="TenantSelection_Detail" value="请选择一个租户" />
     <text name="LoginWith" value="登录" />
