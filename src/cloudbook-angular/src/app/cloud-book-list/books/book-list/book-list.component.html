@@ -11,7 +11,7 @@
             <nz-input-group nzSearch [nzSuffix]="nameTpl">
               <input nz-input [(ngModel)]="filterText" name="filterText" (keyup.enter)="refresh()" placeholder="请输入你要查询书籍名称">
               <ng-template #nameTpl>
-                <button nz-button nzType="primary" nzSearch>
+                <button nz-button nzType="primary" nzSearch (click)="refresh()" type="submit">
                   <i class="anticon anticon-search"></i>
                 </button>
               </ng-template>
@@ -44,7 +44,7 @@
           <span [innerHTML]="l('GridSelectedItemsTips',selectedDataItems.length)"></span>
           <a (click)="restCheckStatus(dataList)" class="ml-md">{{ l('ClearEmpty')}}</a>
           <nz-divider nzType="vertical"></nz-divider>
-          <a (click)="refresh($event)">{{ l("Refresh")}}</a>
+          <a (click)="refresh()">{{ l("Refresh")}}</a>
         </ng-template>
       </nz-col>
     </nz-row>
@@ -53,7 +53,7 @@
   <nz-row class="mb-md">
     <nz-table #nzTable [nzData]="dataList" [nzPageSize]="pageSize" [(nzPageIndex)]="pageNumber" [nzTotal]="totalItems"
       [nzLoading]="isTableLoading" (nzPageIndexChange)="pageNumberChange()" (nzPageSizeChange)="refresh()"
-      [nzShowPagination]="false" [nzShowQuickJumper]="true" [nzNoResult]="noDataTemplate" [nzShowTotal]='showTotalTemplate'
+      [nzShowSizeChanger]="true" [nzShowQuickJumper]="true" [nzNoResult]="noDataTemplate" [nzShowTotal]='showTotalTemplate'
       [nzFrontPagination]="false">
       <ng-template #noDataTemplate>
         <no-data></no-data>
@@ -67,16 +67,16 @@
           <th nzShowCheckbox [nzChecked]="allChecked" (nzCheckedChange)="checkAll($event)" [nzDisabled]="allCheckboxDisabled"
             [nzIndeterminate]="checkboxIndeterminate">
           </th>
-          <th nz-th nzShowSort nzSortKey="priceUrl" nzWidth="100px">
+          <th nz-th nzShowSort nzSortKey="PriceUrl" nzWidth="100px">
             <span>{{ l('PriceUrl')}}</span>
           </th>
-          <th nz-th nzShowSort nzSortKey="name">
+          <th nz-th nzShowSort nzSortKey="Name">
             <span>{{ l('Name')}}</span>
           </th>
-          <th nz-th nzShowSort nzSortKey="author">
+          <th nz-th nzShowSort nzSortKey="Author">
             <span>{{ l('Author')}}</span>
           </th>
-          <th nz-th nzShowSort nzSortKey="intro">
+          <th nz-th nzShowSort nzSortKey="Intro">
             <span>{{ l('Intro')}}</span>
           </th>
           <th nz-th class="text-center" nzWidth="230px">
@@ -86,9 +86,9 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of nzTable.data">
-          <td nzShowCheckbox [nzChecked]="item.checked" (nzCheckedChange)="refresh(dataList)"></td>
+          <td nzShowCheckbox [nzChecked]="item.checked" (nzCheckedChange)="refreshCheckStatus(dataList)"></td>
           <td>
-            <img [src]="item.priceUrl" alt="">
+            <img [src]=item.priceUrl>
           </td>
           <td>
             <ellipsis lines="1">
