@@ -21,6 +21,7 @@ import { EditRoleComponent } from '@app/roles/edit-role/edit-role.component';
 import { CreateUserComponent } from '@app/users/create-user/create-user.component';
 import { EditUserComponent } from '@app/users/edit-user/edit-user.component';
 import { MenuService } from '@yoyo/theme';
+import { CloudBookListModule } from './cloud-book-list/cloud-book-list.module';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { MenuService } from '@yoyo/theme';
     LayoutModule,
     SharedModule,
     AbpModule,
+    CloudBookListModule,
   ],
   declarations: [
     AppComponent,

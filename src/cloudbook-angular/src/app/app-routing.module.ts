@@ -40,6 +40,10 @@ const routes: Routes = [
         canActivate: [AppRouteGuard],
       },
       {
+        path: 'cloud-book-list',
+        loadChildren: './cloud-book-list/cloud-book-list.module#CloudBookListModule'
+      },
+      {
         path: '**',
         redirectTo: 'home',
       },
@@ -51,4 +55,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

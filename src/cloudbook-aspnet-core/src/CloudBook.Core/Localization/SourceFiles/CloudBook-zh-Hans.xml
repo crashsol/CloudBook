@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="zh-Hans">
   <texts>
+    
+    <!--云书单模块-->
+    <text name="CloudBookList" value="云书单"/>
+    <text name="Books" value="书籍管理"/>   
+    
+    
+    
+    
+    
+    
+    
+    
     <text name="HomePage" value="主页" />
     <text name="About" value="关于我们" />
     <text name="WellcomeMessage" value="欢迎使用 YoyoCmsTemplate!" />
