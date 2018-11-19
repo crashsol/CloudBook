@@ -9,7 +9,7 @@
     <text name="BatchDelete" value="批量删除"/>
     <text name="Author" value="作者"/>
     <text name="Intro" value="简介"/>
-    <text name="PriceUrl" value="图片"/>
+    <text name="ImgUrl" value="图片"/>
     
     <text name="ClearEmpty" value="清空"/>
     <text name="NoData" value="暂无数据"/>

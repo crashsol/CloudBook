@@ -1,16 +1,20 @@
-﻿using Abp.Domain.Entities;
-using Abp.Domain.Entities.Auditing;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CloudBook.Books
+namespace CloudBook.Books.Dtos
 {
     /// <summary>
-    /// 书籍类
+    /// 书籍编辑Dto
     /// </summary>
-    public class Book:CreationAuditedEntity<long>
+    public class BookEditDto
     {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? Id { get; set; }
+
         /// <summary>
         /// 书名
         /// </summary>
@@ -35,7 +39,6 @@ namespace CloudBook.Books
         /// 书籍封面图片
         /// </summary>
         public string ImgUrl { get; set; }
-
 
     }
 }

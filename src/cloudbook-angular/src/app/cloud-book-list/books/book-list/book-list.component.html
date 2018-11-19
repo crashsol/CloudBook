@@ -9,7 +9,8 @@
         <nz-form-item>
           <nz-form-control>
             <nz-input-group nzSearch [nzSuffix]="nameTpl">
-              <input nz-input [(ngModel)]="filterText" name="filterText" (keyup.enter)="refresh()" placeholder="请输入你要查询书籍名称">
+              <input nz-input [(ngModel)]="filterText" id="filterText" name="filterText" (keyup.enter)="refresh()"
+                placeholder="请输入你要查询书籍名称">
               <ng-template #nameTpl>
                 <button nz-button nzType="primary" nzSearch (click)="refresh()" type="submit">
                   <i class="anticon anticon-search"></i>
@@ -62,13 +63,13 @@
       <ng-template #showTotalTemplate let-total let-range='range'>
         {{l('GridFooterDisplayText',pageNumber,totalPages,total,range[0],range[1])}}
       </ng-template>
-      <thead (nzSortChange)="gridSord($event)">
+      <thead (nzSortChange)="gridSort($event)">
         <tr>
-          <th nzShowCheckbox [nzChecked]="allChecked" (nzCheckedChange)="checkAll($event)" [nzDisabled]="allCheckboxDisabled"
+          <th nzShowCheckbox [(nzChecked)]="allChecked" (nzCheckedChange)="checkAll($event)" [nzDisabled]="allCheckboxDisabled"
             [nzIndeterminate]="checkboxIndeterminate">
           </th>
-          <th nz-th nzShowSort nzSortKey="PriceUrl" nzWidth="100px">
-            <span>{{ l('PriceUrl')}}</span>
+          <th nz-th nzShowSort nzSortKey="ImgUrl" nzWidth="100px">
+            <span>{{ l('ImgUrl')}}</span>
           </th>
           <th nz-th nzShowSort nzSortKey="Name">
             <span>{{ l('Name')}}</span>
@@ -86,9 +87,9 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of nzTable.data">
-          <td nzShowCheckbox [nzChecked]="item.checked" (nzCheckedChange)="refreshCheckStatus(dataList)"></td>
+          <td nzShowCheckbox [(nzChecked)]="item.checked" (nzCheckedChange)="refreshCheckStatus(dataList)"></td>
           <td>
-            <img [src]=item.priceUrl>
+            <img [src]=item.imgUrl>
           </td>
           <td>
             <ellipsis lines="1">

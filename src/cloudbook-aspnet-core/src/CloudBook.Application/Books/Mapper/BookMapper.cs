@@ -15,6 +15,8 @@ namespace CloudBook.Books.Mapper
         public static void CreateMappers(IMapperConfigurationExpression mapperConfiguration)
         {
             mapperConfiguration.CreateMap<Book, BookListDto>();
+            mapperConfiguration.CreateMap<BookEditDto, Book>();
+            mapperConfiguration.CreateMap<Book, BookEditDto>();
 
         }
     }

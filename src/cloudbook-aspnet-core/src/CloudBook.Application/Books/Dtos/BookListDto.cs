@@ -28,6 +28,6 @@ namespace CloudBook.Books.Dtos
         /// <summary>
         /// 购买链接
         /// </summary>
-        public string PriceUrl { get; set; }
+        public string ImgUrl { get; set; } 
     }
 }
