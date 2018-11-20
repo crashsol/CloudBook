@@ -115,8 +115,12 @@
           <td>
             <ng-container>
               <a (click)="createOrEdit(item.id)"><i class="anticon anticon-edit mr-sm"></i>
-                <span>{{l('Edit')}}</span></a>
+                <span>{{l('Edit')}}</span>
+              </a>
             </ng-container>
+            <nz-popconfirm nzTitle="确定吗？" (nzOnConfirm)="delete(i)" nzOkText="确定" nzCancelText="取消">
+              <a nz-popconfirm><i nz-icon type="delete" theme="fill"></i> 删除</a>
+            </nz-popconfirm>
           </td>
         </tr>
       </tbody>

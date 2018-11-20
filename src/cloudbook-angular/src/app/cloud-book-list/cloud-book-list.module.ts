@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { CloudBookListRoutingModule } from './cloud-book-list-routing.module';
 import { BookListComponent } from './books/book-list/book-list.component';
 import { SharedModule } from '@shared/shared.module';
+import { CreateOrEditBookComponent } from './books/create-or-edit-book/create-or-edit-book.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { SharedModule } from '@shared/shared.module';
     AbpModule,
     CloudBookListRoutingModule
   ],
-  declarations: [BookListComponent],
+  declarations: [BookListComponent, CreateOrEditBookComponent],
   providers: [LocalizationService, TitleService],
   // 需要编译的Component
   entryComponents: [BookListComponent]

@@ -1,3 +1,4 @@
+import { CreateOrEditBookComponent } from './../create-or-edit-book/create-or-edit-book.component';
 import { BooksServiceProxy } from './../../../../shared/service-proxies/service-proxies';
 import { PagedListingComponentBase, PagedRequestDto } from '@shared/component-base/paged-listing-component-base';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
@@ -46,5 +47,55 @@ export class BookListComponent extends PagedListingComponentBase<BookListDto> im
 
       });
   }
+
+
+  /**
+   * 批量删除
+   *
+   * @memberof BookListComponent
+   */
+  batchDelete(): void {
+    if (this.selectedDataItems.length <= 0) {
+      this.message.warn('请选择你要删除的数据');
+    }
+    this.message.confirm('确定要批量删除这些数据，删除后不可恢复', () => {
+      const ids = this.selectedDataItems.map(item => item.id);
+      this._bookService.batchDeleteAsync(ids).subscribe(() => {
+        this.refresh();
+        this.notify.success('批量数据成功');
+      });
+    });
+  }
+
+  /**
+   *  单条删除
+   * @param {number} id
+   * @memberof BookListComponent
+   */
+  delete(id: number): void {
+    this._bookService.deleteBookAsync(id)
+      .subscribe(() => {
+        this.refreshGoFirstPage();
+        this.notify.success('信息删除成功');
+      });
+  }
+
+
+  /**
+   *  添加或则编辑Book
+   *
+   * @param {number} [id]
+   * @memberof BookListComponent
+   */
+  createOrEdit(id?: number): void {
+    this.modalHelper.static(CreateOrEditBookComponent, { id })
+      .subscribe(result => {
+        if (result) {
+          this.refresh();
+        }
+      });
+
+  }
+
 
 }
