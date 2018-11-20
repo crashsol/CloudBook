@@ -6,11 +6,11 @@ using CloudBook.Dtos;
 
 namespace CloudBook.Books.Dtos
 {
-    public class GetBooksInputDto : PagedAndFilteredInputDto,IShouldNormalize
+    public class GetBooksInputDto : PagedAndFilteredInputDto, IShouldNormalize
     {
         public void Normalize()
         {
-            if(string.IsNullOrWhiteSpace(FilterText))
+            if(string.IsNullOrWhiteSpace(Sorting))
             {
                 Sorting = "id";
             }
