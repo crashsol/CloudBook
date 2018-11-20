@@ -88,7 +88,7 @@ export class BookListComponent extends PagedListingComponentBase<BookListDto> im
    * @memberof BookListComponent
    */
   createOrEdit(id?: number): void {
-    this.modalHelper.static(CreateOrEditBookComponent, { id })
+    this.modalHelper.static(CreateOrEditBookComponent, { id: id })
       .subscribe(result => {
         if (result) {
           this.refresh();

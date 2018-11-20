@@ -1,3 +1,46 @@
-<p>
-  create-or-edit-book works!
-</p>
+<form nz-form #validForm (ngSubmit)="submitForm()" nzLayout="horizontal">
+  <!-- 模态框头部 -->
+  <div class="modal-header">
+    <div class="modal-title">
+      <i nz-icon type="medicine-box" theme="fill"></i>
+      <span *ngIf="entity.id">编辑</span>
+      <span *ngIf="!entity.id">创建</span>
+    </div>
+  </div>
+  <fieldset>
+    <nz-form-item nz-row>
+      <nz-form-label nzFor="imgUrl" nzXs="24" nzSm="6">封面图片</nz-form-label>
+      <nz-form-control nzXs="24" nzSm="6" nz-col nzHasFeedback>
+        <input nz-input [(ngModel)]="entity.imgUrl" id="imgUrl" #imgUrl placeholder="请输入首页图片">
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item nz-row>
+      <nz-form-label nzFor="name" nzXs="24" nzSm="6" nzRequired>书名</nz-form-label>
+      <nz-form-control nzXs="24" nzSm="6" nz-col nzHasFeedback>
+        <input nz-input [(ngModel)]="entity.name" id="name" #name placeholder="书名">
+        <nz-form-explain *ngIf="(name.control.dirty||name.control.touched) && name.control.errors">
+          <ng-container *ngIf="name.control.hasError('required')">
+            书名不能为空
+          </ng-container>
+        </nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+
+
+    <nz-form-item nz-row>
+      <nz-form-label nzFor="author" nzXs="24" nzSm="6">作者</nz-form-label>
+      <nz-form-control nzXs="24" nzSm="6" nz-col nzHasFeedback>
+        <input nz-input [(ngModel)]="entity.author" id="author" #author placeholder="作者">
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item nz-row>
+      <nz-form-label nzFor="intro" nzXs="24" nzSm="6">简介</nz-form-label>
+      <nz-form-control nzXs="24" nzSm="6" nz-col nzHasFeedback>
+        <input nz-input [(ngModel)]="entity.intro" id="intro" #intro placeholder="简介">
+      </nz-form-control>
+    </nz-form-item>
+  </fieldset>
+
+</form>
