@@ -20,7 +20,7 @@ import { CreateOrEditBookComponent } from './books/create-or-edit-book/create-or
   declarations: [BookListComponent, CreateOrEditBookComponent],
   providers: [LocalizationService, TitleService],
   // 需要编译的Component
-  entryComponents: [BookListComponent]
+  entryComponents: [BookListComponent, CreateOrEditBookComponent]
 
 
 })

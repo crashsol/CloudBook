@@ -19,7 +19,7 @@ export class CreateOrEditBookComponent extends ModalComponentBase implements OnI
   }
 
   ngOnInit() {
-
+    this.init();
   }
   /*  */
   init() {
