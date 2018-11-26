@@ -12,9 +12,12 @@ using Microsoft.EntityFrameworkCore;
 using Abp.Linq.Extensions;
 using Abp.AutoMapper;
 using Abp.Application.Services.Dto;
+using Abp.Authorization;
+using CloudBook.Books.Authorization;
 
 namespace CloudBook.Books
 {
+    [AbpAuthorize(BookPermissions.BookManager)]
     public class BooksAppService : IBooksAppService
     {
 
@@ -24,11 +27,13 @@ namespace CloudBook.Books
             _bookRepository = repository;
         }
 
+        [AbpAuthorize(BookPermissions.BatchDelete)]
         public async Task BatchDeleteAsync(List<long> input)
         {
            await _bookRepository.DeleteAsync(a => input.Contains(a.Id));
         }
 
+       [AbpAuthorize(BookPermissions.Create,BookPermissions.Edit)]
         public async Task CreateOrUpdateBookAsync(CreateOrUpdateBookInput input)
         {
             if(input.Book.Id.HasValue)
@@ -41,6 +46,7 @@ namespace CloudBook.Books
             }
         }
 
+        [AbpAuthorize(BookPermissions.Edit)]
         private async Task<BookEditDto> CreateBookAsync(BookEditDto book)
         {
             var entity = book.MapTo<Book>();
@@ -49,6 +55,7 @@ namespace CloudBook.Books
             return dto;
         }
 
+        [AbpAuthorize(BookPermissions.Create)]
         private async Task UpdateAsync(BookEditDto book)
         {
             var entity = await _bookRepository.GetAsync(book.Id.Value);
@@ -56,6 +63,8 @@ namespace CloudBook.Books
             await _bookRepository.UpdateAsync(entity);
         }
 
+
+        [AbpAuthorize(BookPermissions.Delete)]
         public async Task DeleteBookAsync(EntityDto<long> input)
         {
 
@@ -64,6 +73,7 @@ namespace CloudBook.Books
            
         }
 
+        [AbpAuthorize(BookPermissions.Edit)]
         public async Task<GetBookForEditOutput> GetBookForEditOutputAsync(NullableIdDto<long> input)
         {
             var output = new GetBookForEditOutput();
@@ -81,6 +91,7 @@ namespace CloudBook.Books
             return output;
         }
 
+        [AbpAuthorize(BookPermissions.Query)]
         public async Task<PagedResultDto<BookListDto>> GetPagedBooksAsync(GetBooksInputDto dto)
         {
             var query = _bookRepository.GetAll().AsNoTracking()
