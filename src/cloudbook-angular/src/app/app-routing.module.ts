@@ -42,6 +42,8 @@ const routes: Routes = [
       {
         path: 'cloud-book-list',
         loadChildren: './cloud-book-list/cloud-book-list.module#CloudBookListModule'
+        /* 添加权限控制,如果没有权限，怎不会懒加载模块*/
+        , data: { permission: 'Pages.BookManager' }
       },
       {
         path: '**',

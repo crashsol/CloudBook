@@ -10,12 +10,12 @@ namespace CloudBook.Books.Authorization
     public static class BookPermissions
     {
 
-        public const string BookManager = "Page.BookManager";
-        public const string Query = "Page.Book.Query";
-        public const string Create = "Page.Book.Create";
-        public const string Edit = "Page.Book.Edit";
-        public const string Delete = "Page.Book.Delete";
-        public const string BatchDelete = "Page.Book.BatchDelete";
+        public const string BookManager = "Pages.BookManager";
+        public const string Query = "Pages.Book.Query";
+        public const string Create = "Pages.Book.Create";
+        public const string Edit = "Pages.Book.Edit";
+        public const string Delete = "Pages.Book.Delete";
+        public const string BatchDelete = "Pages.Book.BatchDelete";
       
     }
 }

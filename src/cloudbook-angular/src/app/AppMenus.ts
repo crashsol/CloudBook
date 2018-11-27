@@ -41,13 +41,14 @@ export class AppMenus {
     // 添加cloud-book-list 模块
     new MenuItem(
       'CloudBookList',
-      '',
+      /* 给菜单添加权限控制模块 */
+      'Pages.Administrator',
       'anticon  anticon-book',
       '',
       [
         new MenuItem(
           'Books',
-          '',
+          'Pages.BookManager',
           'anticon anticon-file',
           '/app/cloud-book-list/book-list'
         )

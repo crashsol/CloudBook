@@ -26,10 +26,11 @@
   <div class="mb-md">
     <nz-row nzGutter="8">
       <nz-col nzSpan="24">
-        <button (click)="createOrEdit()" nz-button nzType="primary">
+        <!-- isGranted 判断是否具有某个权限*ngIf="isGranted('Pages.Book.BatchDelete')" -->
+        <button (click)="createOrEdit()" nz-button nzType="primary" *ngIf="isGranted('Pages.Book.Create')">
           <i class="anticon anticon-plus"></i><span>{{ l('Create')}}</span>
         </button>
-        <button (click)="batchDelete()" nz-button nzType="danger">
+        <button (click)="batchDelete()" nz-button nzType="danger" *ngIf="isGranted('Pages.Book.BatchDelete')">
           <i class="anticon anticon-delete"></i>
           <span>{{ l('BatchDelete')}}</span>
         </button>
@@ -113,14 +114,17 @@
             </ellipsis>
           </td>
           <td>
-            <ng-container>
+            <ng-container *ngIf="isGranted('Pages.Book.Edit')">
               <a (click)="createOrEdit(item.id)"><i class="anticon anticon-edit mr-sm"></i>
                 <span>{{l('Edit')}}</span>
               </a>
             </ng-container>
-            <nz-popconfirm nzTitle="确定吗？" (nzOnConfirm)="delete(item.id)" nzOkText="确定" nzCancelText="取消">
-              <a nz-popconfirm><i class="anticon anticon-delete"></i> 删除</a>
-            </nz-popconfirm>
+            <ng-container *ngIf="isGranted('Pages.Book.Delete')">
+              <nz-popconfirm nzTitle="确定吗？" (nzOnConfirm)="delete(item.id)" nzOkText="确定" nzCancelText="取消">
+                <a nz-popconfirm><i class="anticon anticon-delete"></i> 删除</a>
+              </nz-popconfirm>
+            </ng-container>
+
           </td>
         </tr>
       </tbody>
