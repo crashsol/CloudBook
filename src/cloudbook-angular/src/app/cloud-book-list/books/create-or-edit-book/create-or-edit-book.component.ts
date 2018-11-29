@@ -1,48 +1,65 @@
-import { BooksServiceProxy, CreateOrUpdateBookInput } from './../../../../shared/service-proxies/service-proxies';
-import { Component, OnInit, Injector } from '@angular/core';
-import { ModalComponentBase } from '@shared/component-base';
-import { BookEditDto } from '@shared/service-proxies/service-proxies';
-import { finalize } from 'rxjs/operators';
+
+import { Component, OnInit, Injector, Input, ViewChild, AfterViewInit } from '@angular/core';
+import { ModalComponentBase } from '@shared/component-base/modal-component-base';
+import { CreateOrUpdateBookInput, BookEditDto, BookServiceProxy } from '@shared/service-proxies/service-proxies';
+import { Validators, AbstractControl, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-create-or-edit-book',
+  selector: 'create-or-edit-book',
   templateUrl: './create-or-edit-book.component.html',
-  styles: []
+  styleUrls: [
+    'create-or-edit-book.component.less'
+  ],
 })
-export class CreateOrEditBookComponent extends ModalComponentBase implements OnInit {
 
+export class CreateOrEditBookComponent
+  extends ModalComponentBase
+  implements OnInit {
+  /**
+  * 编辑时DTO的id
+  */
+  id: any;
 
-  id: number;
-  entity = new BookEditDto();
-  constructor(injector: Injector, private _booksService: BooksServiceProxy) {
+  entity: BookEditDto = new BookEditDto();
+
+  /**
+  * 初始化的构造函数
+  */
+  constructor(
+    injector: Injector,
+    private _bookService: BookServiceProxy
+  ) {
     super(injector);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.init();
   }
-  /*  */
-  init() {
-    // 编辑
-    if (this.id) {
-      this._booksService.getBookForEditOutputAsync(this.id)
-        .subscribe((result) => {
-          this.entity = result.book;
-        });
-    }
+
+
+  /**
+  * 初始化方法
+  */
+  init(): void {
+    this._bookService.getForEdit(this.id).subscribe(result => {
+      this.entity = result.book;
+    });
   }
 
+  /**
+  * 保存方法,提交form表单
+  */
   submitForm(): void {
     const input = new CreateOrUpdateBookInput();
     input.book = this.entity;
+
     this.saving = true;
-    this._booksService.createOrUpdateBookAsync(input)
-      .pipe(finalize(() => {
-        this.saving = false;
-      })).subscribe(() => {
-        this.notify.success('信息保存成功');
+
+    this._bookService.createOrUpdate(input)
+      .finally(() => (this.saving = false))
+      .subscribe(() => {
+        this.notify.success(this.l('SavedSuccessfully'));
         this.success(true);
       });
   }
-
 }

@@ -7,28 +7,20 @@
     <text name="Books" value="书籍管理"/>
     <text name="Create" value="创建"/>
     <text name="BatchDelete" value="批量删除"/>
-    <text name="Author" value="作者"/>
-    <text name="Intro" value="简介"/>
-    <text name="ImgUrl" value="图片"/>
+    
+    <text name="Author"  value="作者"></text>
+    <text name="Intro"  value="简介"></text>
+    <text name="PriceUrl"  value="购买链接"></text>
+    <text name="ImgUrl"  value="图片"></text>
     
     <text name="ClearEmpty" value="清空"/>
     <text name="NoData" value="暂无数据"/>
     <text name="GridFooterDisplayText" value="当前{0}页/共{1}页，共{2}条/显示{3}-{4}条"/>
-    <text name="GridSelectedItemsTips">      
+    <text name="GridSelectedXItemsTips">      
       <![CDATA[已选择<strong class="text primary">{0}</strong>项]]>    
     </text>
     
     
-      
-
-
-
-
-
-
-
-
-
     <text name="HomePage" value="主页" />
     <text name="About" value="关于我们" />
     <text name="WellcomeMessage" value="欢迎使用 YoyoCmsTemplate!" />

@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BookListComponent } from './books/book-list/book-list.component';
+import { BookComponent } from './books/book.component';
 
 const routes: Routes = [
-  {
-    path: 'book-list',
-    component: BookListComponent
-  },
+  { path: 'book', component: BookComponent, data: { permission: 'Pages.Book' } },
 ];
 
 @NgModule({

@@ -1,11 +1,15 @@
-﻿using System;
+
+
 using System.Collections.Generic;
-using System.Text;
+using Abp.Application.Services.Dto;
+using CloudBook.Books;
 
 namespace CloudBook.Books.Dtos
 {
-   public class GetBookForEditOutput
+    public class GetBookForEditOutput
     {
-        public BookEditDto Book { get; set; } 
+
+        public BookEditDto Book { get; set; }
+
     }
 }

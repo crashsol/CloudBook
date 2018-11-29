@@ -2,6 +2,7 @@ using Abp.AutoMapper;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using CloudBook.Authorization;
+using CloudBook.Books.Authorization;
 using CloudBook.Books.Mapper;
 
 namespace CloudBook
@@ -13,14 +14,16 @@ namespace CloudBook
     {
         public override void PreInitialize()
         {
+            //系统权限添加
             Configuration.Authorization.Providers.Add<CloudBookAuthorizationProvider>();
+            //添加权限配置
+            Configuration.Authorization.Providers.Add<BookAuthorizationProvider>();
 
             // 自定义类型映射
             Configuration.Modules.AbpAutoMapper().Configurators.Add(configuration =>
             {
-                //添加书籍的映射              
-                BookMapper.CreateMappers(configuration);
 
+                BookMapper.CreateMappings(configuration);
 
             });
         }
@@ -33,7 +36,7 @@ namespace CloudBook
 
             Configuration.Modules.AbpAutoMapper().Configurators.Add(
                 // Scan the assembly for classes which inherit from AutoMapper.Profile
-                cfg => cfg.AddProfiles(thisAssembly)
+                cfg => cfg.AddProfiles(thisAssembly)                
             );
         }
     }
