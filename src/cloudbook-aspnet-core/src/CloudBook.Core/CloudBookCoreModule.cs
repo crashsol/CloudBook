@@ -3,10 +3,8 @@ using Abp.Reflection.Extensions;
 using Abp.Timing;
 using Abp.Zero;
 using Abp.Zero.Configuration;
-using CloudBook.Authorization;
 using CloudBook.Authorization.Roles;
 using CloudBook.Authorization.Users;
-using CloudBook.Books.Authorization;
 using CloudBook.Configuration;
 using CloudBook.Localization;
 using CloudBook.MultiTenancy;
@@ -33,10 +31,7 @@ namespace CloudBook
 
             // Configure roles
             AppRoleConfig.Configure(Configuration.Modules.Zero().RoleManagement);
-
-            //添加BookManager权限模块
-            Configuration.Authorization.Providers.Add<BookAuthorizationProvider>();
-
+         
             Configuration.Settings.Providers.Add<AppSettingProvider>();
         }
 
