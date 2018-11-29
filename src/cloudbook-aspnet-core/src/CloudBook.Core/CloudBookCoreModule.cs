@@ -31,7 +31,10 @@ namespace CloudBook
 
             // Configure roles
             AppRoleConfig.Configure(Configuration.Modules.Zero().RoleManagement);
-         
+
+          
+          
+
             Configuration.Settings.Providers.Add<AppSettingProvider>();
         }
 
