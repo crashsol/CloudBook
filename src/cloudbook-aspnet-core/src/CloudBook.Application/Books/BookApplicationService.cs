@@ -59,11 +59,15 @@ namespace CloudBook.Books
 		{
 
 		    var query = _entityRepository.GetAll();
-			// TODO:根据传入的参数添加过滤条件
-            
+            // TODO:根据传入的参数添加过滤条件
+       
 
-			var count = await query.CountAsync();
+            var count = await query.CountAsync();
 
+            if(!string.IsNullOrEmpty(input.FilterText))
+            {
+                query = query.Where(b => EF.Functions.Like(b.Name, $"%{input.FilterText}%"));
+            }            
 			var entityList = await query
 					.OrderBy(input.Sorting).AsNoTracking()
 					.PageBy(input)
