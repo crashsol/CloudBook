@@ -84,8 +84,8 @@ namespace CloudBook.Roles
         }
 
         public Task<ListResultDto<PermissionDto>> GetAllPermissions()
-        {
-            var permissions = PermissionManager.GetAllPermissions();
+        {         
+            var permissions = PermissionManager.GetAllPermissions();         
 
             return Task.FromResult(new ListResultDto<PermissionDto>(
                 ObjectMapper.Map<List<PermissionDto>>(permissions)

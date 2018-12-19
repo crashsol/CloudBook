@@ -31,27 +31,28 @@ export class AppMenus {
       'anticon anticon-user',
       '/app/users',
     ),
+    // 添加cloud-book-list 模块
+    new MenuItem(
+      'CloudBookList',
+      /* 给菜单添加权限控制模块 */
+      'Pages.Administration',
+      'anticon  anticon-book',
+      '',
+      [
+        new MenuItem(
+          'Book',
+          'Pages.Book',
+          'anticon anticon-file',
+          '/app/cloud-book-list/book'
+        )
+      ]
+    ),
     // 关于我们
     new MenuItem(
       'About',
       '',
       'anticon anticon-info-circle-o',
       '/app/about',
-    ),
-    // 添加cloud-book-list 模块
-    new MenuItem(
-      'CloudBookList',
-      '',
-      'anticon  anticon-book',
-      '',
-      [
-        new MenuItem(
-          'Books',
-          '',
-          'anticon anticon-file',
-          '/app/cloud-book-list/book-list'
-        )
-      ]
     ),
   ];
 }

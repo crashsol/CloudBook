@@ -1,44 +1,65 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace CloudBook.Books.Dtos
+using System;
+using System.ComponentModel.DataAnnotations;
+using Abp.Domain.Entities.Auditing;
+using CloudBook.Books;
+
+namespace  CloudBook.Books.Dtos
 {
-    /// <summary>
-    /// 书籍编辑Dto
-    /// </summary>
     public class BookEditDto
     {
 
         /// <summary>
-        /// 
+        /// Id
         /// </summary>
-        public long? Id { get; set; }
+        public long? Id { get; set; }         
 
-        /// <summary>
-        /// 书名
-        /// </summary>
-        public string Name { get; set; }
 
-        /// <summary>
-        /// 作者
-        /// </summary>
-        public string Author { get; set; }
+        
+		/// <summary>
+		/// 书名
+		/// </summary>
+		[MaxLength(50, ErrorMessage="书名超出最大长度")]
+		[MinLength(1, ErrorMessage="书名小于最小长度")]
+		[Required(ErrorMessage="书名不能为空")]
+		public string Name { get; set; }
 
-        /// <summary>
-        /// 简介
-        /// </summary>
-        public string Intro { get; set; }
 
-        /// <summary>
-        /// 购买链接
-        /// </summary>
-        public string PriceUrl { get; set; }
 
-        /// <summary>
-        /// 书籍封面图片
-        /// </summary>
-        public string ImgUrl { get; set; }
+		/// <summary>
+		/// 作者
+		/// </summary>
+		[MaxLength(50, ErrorMessage="作者超出最大长度")]
+		[MinLength(1, ErrorMessage="作者小于最小长度")]
+		[Required(ErrorMessage="作者不能为空")]
+		public string Author { get; set; }
+
+
+
+		/// <summary>
+		/// 简介
+		/// </summary>
+		[MaxLength(50, ErrorMessage="简介超出最大长度")]
+		[MinLength(1, ErrorMessage="简介小于最小长度")]
+		[Required(ErrorMessage="简介不能为空")]
+		public string Intro { get; set; }
+
+
+
+		/// <summary>
+		/// 购买链接
+		/// </summary>
+		public string PriceUrl { get; set; }
+
+
+
+		/// <summary>
+		/// 图片
+		/// </summary>
+		public string ImgUrl { get; set; }
+
+
+
 
     }
 }

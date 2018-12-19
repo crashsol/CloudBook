@@ -1,21 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace CloudBook.Books.Authorization
 {
-    /// <summary>
-    /// 书籍管理权限定义
-    /// </summary>
-    public static class BookPermissions
-    {
+	/// <summary>
+    /// 定义系统的权限名称的字符串常量。
+    /// <see cref="BookAuthorizationProvider" />中对权限的定义.
+    ///</summary>
+	public static  class BookPermissions
+	{
+		/// <summary>
+		/// Book权限节点
+		///</summary>
+		public const string Node = "Pages.Book";
 
-        public const string BookManager = "Page.BookManager";
-        public const string Query = "Page.Book.Query";
-        public const string Create = "Page.Book.Create";
-        public const string Edit = "Page.Book.Edit";
-        public const string Delete = "Page.Book.Delete";
-        public const string BatchDelete = "Page.Book.BatchDelete";
-      
+		/// <summary>
+		/// Book查询授权
+		///</summary>
+		public const string Query = "Pages.Book.Query";
+
+		/// <summary>
+		/// Book创建权限
+		///</summary>
+		public const string Create = "Pages.Book.Create";
+
+		/// <summary>
+		/// Book修改权限
+		///</summary>
+		public const string Edit = "Pages.Book.Edit";
+
+		/// <summary>
+		/// Book删除权限
+		///</summary>
+		public const string Delete = "Pages.Book.Delete";
+
+        /// <summary>
+		/// Book批量删除权限
+		///</summary>
+		public const string BatchDelete = "Pages.Book.BatchDelete";
+
+		/// <summary>
+		/// Book导出Excel
+		///</summary>
+		public const string ExportExcel="Pages.Book.ExportExcel";
+
+		 
+		 
+         
     }
+
 }
+
