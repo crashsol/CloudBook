@@ -26,7 +26,7 @@ Configuration.Modules.AbpAutoMapper().Configurators.Add(configuration =>
     // ....
 
     // 只需要复制这一段
-BookMapper.CreateMappings(configuration);
+BookTagMapper.CreateMappings(configuration);
 
     // ....
 });
@@ -39,7 +39,7 @@ BookMapper.CreateMappings(configuration);
 中的 PreInitialize 方法中:
 
 ```
-Configuration.Authorization.Providers.Add<BookAuthorizationProvider>();
+Configuration.Authorization.Providers.Add<BookTagAuthorizationProvider>();
 
 ```
 
@@ -48,7 +48,7 @@ Configuration.Authorization.Providers.Add<BookAuthorizationProvider>();
 可以在```DbContext```中增加：
 
  ```
-public DbSet<Book>  Books { get; set; }
+public DbSet<BookTag>  BookTags { get; set; }
 
  ```
 
@@ -57,7 +57,7 @@ public DbSet<Book>  Books { get; set; }
 ```
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new BookCfg());
+            modelBuilder.ApplyConfiguration(new BookTagCfg());
         }
 
 ```
@@ -69,11 +69,7 @@ public DbSet<Book>  Books { get; set; }
 
 ```
 
-<text name="Name"  value="书名"></text>
-<text name="Author"  value="作者"></text>
-<text name="Intro"  value="简介"></text>
-<text name="PriceUrl"  value="购买链接"></text>
-<text name="ImgUrl"  value="图片"></text>
+<text name="Name"  value="标签名称"></text>
 
 
 ```

@@ -5,6 +5,7 @@ using CloudBook.Authorization.Users;
 using CloudBook.MultiTenancy;
 using CloudBook.Books;
 using CloudBook.EntityMapper.Books;
+using CloudBook.EntityMapper.BookTags;
 
 namespace CloudBook.EntityFrameworkCore
 {
@@ -27,6 +28,7 @@ namespace CloudBook.EntityFrameworkCore
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new BookCfg());
+            modelBuilder.ApplyConfiguration(new BookTagCfg());
         }
     }
 }

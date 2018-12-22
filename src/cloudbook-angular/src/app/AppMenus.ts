@@ -44,7 +44,11 @@ export class AppMenus {
           'Pages.Book',
           'anticon anticon-file',
           '/app/cloud-book-list/book'
-        )
+        ),
+        new MenuItem('BookTag',
+          'Pages.BookTag',
+          'anticon anticon-dashboard',
+          '/app/cloud-book-list/book-tag')
       ]
     ),
     // 关于我们

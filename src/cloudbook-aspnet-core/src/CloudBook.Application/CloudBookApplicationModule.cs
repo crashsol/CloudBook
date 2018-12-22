@@ -19,11 +19,14 @@ namespace CloudBook
             //添加权限配置
             Configuration.Authorization.Providers.Add<BookAuthorizationProvider>();
 
+            Configuration.Authorization.Providers.Add<BookTagAuthorizationProvider>();
+
             // 自定义类型映射
             Configuration.Modules.AbpAutoMapper().Configurators.Add(configuration =>
             {
 
                 BookMapper.CreateMappings(configuration);
+                BookTagMapper.CreateMappings(configuration);
 
             });
         }

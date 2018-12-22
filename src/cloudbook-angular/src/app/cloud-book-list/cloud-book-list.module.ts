@@ -7,6 +7,8 @@ import { CloudBookListRoutingModule } from './cloud-book-list-routing.module';
 import { SharedModule } from '@shared/shared.module';
 import { CreateOrEditBookComponent } from './books/create-or-edit-book/create-or-edit-book.component';
 import { BookComponent } from './books/book.component';
+import { BookTagComponent } from './book-tag/book-tag.component';
+import { CreateOrEditBookTagComponent } from './book-tag/create-or-edit-book-tag/create-or-edit-book-tag.component';
 
 
 @NgModule({
@@ -17,10 +19,12 @@ import { BookComponent } from './books/book.component';
     AbpModule,
     CloudBookListRoutingModule
   ],
-  declarations: [BookComponent, CreateOrEditBookComponent],
+  declarations: [BookComponent, CreateOrEditBookComponent,
+    BookTagComponent,
+    CreateOrEditBookTagComponent],
   providers: [LocalizationService, TitleService],
   // 需要编译的Component
-  entryComponents: [BookComponent, CreateOrEditBookComponent]
+  entryComponents: [BookComponent, CreateOrEditBookComponent, CreateOrEditBookTagComponent]
 
 
 })

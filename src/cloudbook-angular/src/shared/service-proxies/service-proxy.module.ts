@@ -15,6 +15,7 @@ import * as ApiServiceProxies from '@shared/service-proxies/service-proxies';
     ApiServiceProxies.ConfigurationServiceProxy,
     // 添加BooksService服务代理
     ApiServiceProxies.BookServiceProxy,
+    ApiServiceProxies.BookTagServiceProxy,
     { provide: HTTP_INTERCEPTORS, useClass: AbpHttpInterceptor, multi: true },
   ],
 })
